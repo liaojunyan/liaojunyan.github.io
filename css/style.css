@@ -7,7 +7,7 @@ body{
     background-image: url(../img/bgimg.png);
 }
 
-div{
+div.main{
     text-align: center;
     position: absolute;
     top: 0;
