@@ -25,3 +25,7 @@ a{
     color: #666;
     text-decoration: none;
 }
+
+a:hover{
+    border-bottom: #666 solid 2px;
+}
