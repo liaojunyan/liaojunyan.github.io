@@ -7,25 +7,34 @@ body{
     background-image: url(../img/bgimg.png);
 }
 
-h1,p{
-    text-align: center;
-}
-
 div{
-    width: 400px;
-    height: 300px;
+    text-align: center;
     position: absolute;
-    top: 50%;
-    left: 50%; 
-    margin-left: -200px;
-    margin-top: -150px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 30%;
+    margin: auto;
 }
 
-a{
+h1{
+    font-size: 5vw;
+    margin-top: 2px;
+}
+
+a.h{
+    text-decoration: none;
+    color: #000;
+}
+
+a.p{
     color: #666;
     text-decoration: none;
+    font-size: 2vw;
 }
 
-a:hover{
+a.p:hover{
     border-bottom: #666 solid 2px;
 }
