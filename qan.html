@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Name Selector</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            padding: 30px 60px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px; /* Add some space below the button */
+        }
+        .name-display {
+            margin-top: 20px;
+            font-size: 50px;
+            opacity: 0;
+            transition: opacity 0.1s ease-out;
+        }
+        .selected-name {
+            margin-top: 20px;
+            font-size: 100px;
+            font-weight: bold;
+            color: #ff6347;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="startAnimation()">Start!</button>
+        <div id="nameDisplay" class="name-display"></div>
+        <div id="selectedName" class="selected-name"></div>
+    </div>
+
+    <script>
+        const names = [
+            "李鹏程", "陈子睿", "黄皓函", "伍紫怡", "李宇轩", "彭瑞丰", "郑开鑫", "唐潇", "谢锐传", "饶桉鑫", "雷玉婷", "梁子傲", "易佳鹏", 
+            "邹雨霏", "刘正娇", "姚宇鑫", "刘成程", "夏明锡", "周乐康", "朱嘉颢", "洪正豪", "苏昕奕", "兰俊豪", "吕烈杨", "曾一", "谢恩杨", 
+            "钟诚奕", "倪华", "包明杰", "刘豫川", "黄维宇", "洪世杰", "梁陈", "刘蕊欣", "罗帝豪", "黄雨潼", "柳宇轩", "张鑫磊", "方文鑫", 
+            "冯宇浩", "肖能宇", "张文铭宇", "彭宇阳", "廖语欣", "陈望鸿", "李生强", "程子墨"
+        ];
+
+        function startAnimation() {
+            document.getElementById('nameDisplay').innerText = '';
+            document.getElementById('selectedName').innerText = '';
+
+            let currentIndex = 0;
+            const intervalDuration = 5000 / names.length; // Total duration is 5 seconds
+
+            const interval = setInterval(() => {
+                if (currentIndex < names.length) {
+                    const nameElement = document.getElementById('nameDisplay');
+                    nameElement.innerText = names[currentIndex];
+
+                    // Show the current name
+                    setTimeout(() => {
+                        nameElement.style.opacity = 1;
+                    }, 10);
+
+                    // Hide the current name after a short delay
+                    setTimeout(() => {
+                        nameElement.style.opacity = 0;
+                    }, 100);
+
+                    currentIndex++;
+                } else {
+                    clearInterval(interval);
+                    selectRandomName();
+                }
+            }, intervalDuration);
+        }
+
+        function selectRandomName() {
+            const randomIndex = Math.floor(Math.random() * names.length);
+            const selectedName = names[randomIndex];
+            const nameElement = document.getElementById('nameDisplay');
+
+            // Display the selected name in the selectedName div with larger and bold style
+            document.getElementById('selectedName').innerText = selectedName;
+            document.getElementById('selectedName').style.fontSize = '100px';
+            document.getElementById('selectedName').style.fontWeight = 'bold';
+            document.getElementById('selectedName').style.color = '#ff6347';
+
+            // Clear the temporary display
+            nameElement.innerText = '';
+        }
+    </script>
+</body>
+</html>
+
+
+
